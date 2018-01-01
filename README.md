@@ -1,6 +1,6 @@
 # Учебный проект «Код и Магия» [![Build status][travis-image]][travis-url]
 
-* Студент: [Александр Кокорев](https://up.htmlacademy.ru/javascript/11/user/430697).
+* Студент: [](https://up.htmlacademy.ru/javascript/11/user/430697).
 
 ---
 
