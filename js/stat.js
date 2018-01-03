@@ -17,9 +17,12 @@ ctx.fillText('Ура вы победили', 120, 40);
 var maxTime = maxValue(times);
 
 ctx.fillText('Худшее время: ' + maxTime, 120, 60);
+paintGistogramm(150, maxTime, names, times, ctx);
+
+};
 
 
-}
+//поиск максимальноего значения
 var maxValue = function functionName(times) {
   var max = -1;
   for (var i = 0; i < times.length; i++) {
@@ -30,6 +33,48 @@ var maxValue = function functionName(times) {
   }
   return parseInt(max);
 };
+
+//нарисовать гистограму
+var paintGistogramm = function (histpgramWidth, maxValue, names, times,ctx) {
+
+
+var step = histpgramWidth / (maxValue - 0);
+
+var barHeight = 20;
+var indent = 50;
+var initialX = 120;
+var initialY = 80;
+var lineHeight = 15;
+
+
+for (var i = 0; i < times.length; i++) {
+  // ctx.fillStyle = "back";
+
+
+
+  if(names[i].toLowerCase() === 'вы'){
+    ctx.fillStyle = 'rgba(0,0,0,0.7)';
+  }else{
+    ctx.fillStyle = 'black';
+  }
+  ctx.fillRect(initialX, initialY + indent * i , times[i] * step, barHeight);
+  ctx.fillText(names[i], initialX + histpgramWidth + barHeight, initialY + lineHeight + indent *i );
+
+  ctx.fillStyle = "white";
+  ctx.font = '16 PT Mono';
+  ctx.fillText(parseInt(times[i]), initialX, initialY + indent * i + barHeight);
+
+
+  // hastogramStep + 20;
+  // ctx.fillStyle = 'white';
+  //
+  // ctx.fillText(names[i]+' Набрал: '+ times[i], 120, hastogramStep);
+}
+
+
+};
+
+
 
 
 
